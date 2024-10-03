@@ -1,0 +1,4 @@
+name: B_s_GhostGrave
+version: '3.0'
+main: biraw.online.b_s_GhostGrave.B_s_GhostGrave
+api-version: '1.20'
