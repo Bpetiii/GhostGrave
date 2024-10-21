@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>biraw.online</groupId>
-    <artifactId>B_s_GhostGrave_New</artifactId>
-    <version>3.0</version>
+    <artifactId>B_s_GhostGrave</artifactId>
+    <version>3.1</version>
     <packaging>jar</packaging>
 
     <name>B_s_GhostGrave_New</name>
