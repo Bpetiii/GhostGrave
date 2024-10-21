@@ -24,24 +24,24 @@ public class TaskManager {
 
             // Create particle effects
             Particle.DustOptions smoke = new Particle.DustOptions(Color.BLACK, 8f);
+
+
+            // Setting ai false
+            ghost.setAI(false);
             Particle.DustOptions eye = new Particle.DustOptions(Color.WHITE, 0.6f);
 
             // Spawn smoke particle at ghost's location
             ghost.getWorld().spawnParticle(Particle.DUST, ghostLocation, 2*particle_count, smoke);
-
-            // Setting ai false
-            ghost.setAI(false);
-
             // Check distance between ghost and player
             if (ghostLocation.distance(player.getLocation()) < 20 && ghostLocation.distance(player.getLocation()) > 3) {
                 // Disable "bee" behavior
                 ghost.setFlower(null);
                 ghost.setCannotEnterHiveTicks(100);
                 ghost.setHive(null);
-                ghost.setAI(true);
+                //ghost.setAI(true);
 
                 // Move the ghost toward the player
-                ghost.getPathfinder().moveTo(player.getLocation().add(player.getFacing().getModX() * 2.0, 1.0, player.getFacing().getModZ() * 2.0));
+                //ghost.getPathfinder().moveTo(player.getLocation().add(player.getFacing().getModX() * 2.0, 1.0, player.getFacing().getModZ() * 2.0));
             }
 
             // GHOST EYES

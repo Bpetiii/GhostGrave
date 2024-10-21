@@ -56,8 +56,11 @@ public class PlayerInteractEntityListener implements Listener {
         // Give back XP
         NamespacedKey player_xp_key = B_s_GhostGrave.getPlugin().GetNamespaceKey("player_xp");
         int xp_points = ghost.getPersistentDataContainer().get(player_xp_key,PersistentDataType.INTEGER);
-        if (B_s_GhostGrave.getConfigManager().vanillaExperience) xp_points = Math.clamp(xp_points,0,100); // Add the option of vanilla xp regain
-        event.getPlayer().giveExp(xp_points);
+        if (B_s_GhostGrave.getConfigManager().vanillaExperience)
+        {
+            xp_points = Math.clamp(xp_points,0,7); // Add the option of vanilla xp regain
+        }
+        event.getPlayer().giveExpLevels(xp_points);
 
         //Play sound and particles
         ghostsWorld.playSound(ghost.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_RESONATE, 1.0f, 1.0f);

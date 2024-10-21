@@ -58,7 +58,8 @@ public class ConfigManager {
                 config.setComments("experience_count",
                         List.of(" ",
                                 "The percentage of experience that the player will get back from the ghost.",
-                                "Setting this to more than '100' will result in an infinite experience glitch.")
+                                "Setting this to more than '100' will result in an infinite experience glitch.",
+                                "On this SPIGOT EDITION it's advised to keep this on 0, because this version operates with levels instead of points.")
                 );
 
                 config.set("can_all_player_open", false);
@@ -85,8 +86,8 @@ public class ConfigManager {
             try {
                 experienceCount = config.getInt("experience_count");
             } catch (Exception ex) {
-                B_s_GhostGrave.getPlugin().getLogger().warning("'experience_count' is not properly set in the config, so it's been set to '100' as default!");
-                config.set("experience_count", 100);
+                B_s_GhostGrave.getPlugin().getLogger().warning("'experience_count' is not properly set in the config, so it's been set to '0' as default!");
+                config.set("experience_count", 0);
             }
 
             try {

@@ -15,7 +15,7 @@ public class PlayerDeathListener implements Listener {
 
     @EventHandler
     void playerDeath(PlayerDeathEvent event) {
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         if (player.getInventory().isEmpty() && !B_s_GhostGrave.getConfigManager().noItemSpawns) return;
         event.setDroppedExp(0);
         event.getDrops().clear();
@@ -35,8 +35,8 @@ public class PlayerDeathListener implements Listener {
         // Save the xp
         NamespacedKey player_xp_key = B_s_GhostGrave.getPlugin().GetNamespaceKey("player_xp");
         int player_xp = B_s_GhostGrave.getConfigManager().vanillaExperience
-                ? player.calculateTotalExperiencePoints()
-                : Math.floorDiv(player.calculateTotalExperiencePoints(), 100) * B_s_GhostGrave.getConfigManager().experienceCount;
+                ? player.getLevel()
+                : Math.floorDiv(player.getLevel(), 100) * B_s_GhostGrave.getConfigManager().experienceCount;
         ghost.getPersistentDataContainer().set(player_xp_key, PersistentDataType.INTEGER, player_xp);
 
         // Start the task of the ghost
